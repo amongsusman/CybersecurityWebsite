@@ -1,65 +1,29 @@
-'use client';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
-import Link from "next/link";
+import Image from "next/image";
+import NavBar from "../components/NavBar";
+import InfoCard from "../components/InfoCard";
 
-export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
-
+export default function Authentication() {
   return (
-    <main className="flex flex-col h-[100vh] bg-gradient-to-r from-blue-300 to-blue-600 font-serif">
+    <main className="flex flex-col min-h-screen bg-gradient-to-r from-blue-300 to-blue-600 font-serif">
       {/* Navbar */}
-      <nav className="w-full bg-black bg-opacity-80 text-white">
-        <div className="flex items-center justify-between px-6 py-4">
-          {/* Logo or title */}
-          <div className="text-2xl font-bold">CybrLearn</div>
-
-          {/* Hamburger button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Smooth dropdown */}
-        <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-100 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <ul className="flex flex-col items-center space-y-3 py-4 text-lg bg-black bg-opacity-90 border-t border-gray-700">
-            <Link href="/triad" className="text-blue-400 hover:underline">
-              CIA Triad
-            </Link>
-            <Link href="/datastates" className="text-blue-400 hover:underline">
-              Data States
-            </Link>
-            <Link href="/auth" className="text-blue-400 hover:underline">
-              Authentication
-            </Link>
-            <Link href="/passwords" className="text-blue-400 hover:underline">
-              Passwords
-            </Link>
-            <Link href="/phishing" className="text-blue-400 hover:underline">
-              Phishing
-            </Link>
-            <Link href="/sengin" className="text-blue-400 hover:underline">
-              Social Engineering
-            </Link>
-            <Link href="/threats" className="text-blue-400 hover:underline">
-              Potential Threats
-            </Link>
-          </ul>
-        </div>
-      </nav>
+      <NavBar />
 
       {/* Main content */}
-      <div className="flex flex-1 items-center justify-center text-white text-4xl">
-        <p>Learn all about Cybersecurity!</p>
-      </div>
+      <section className="flex flex-col items-center justify-center flex-grow px-6 py-16">
+        <div className="w-full max-w-5xl">
+          <InfoCard
+            title="What are the different kinds of authentication?"
+            description="There are multiple methods of proving that you should be allowed into a private area/website. These methods include what you have, what you know, and what you are."
+            bullets={[
+              "What You Have: The person trying to authenticate has a physical/digital proof that they should be allowed in (ex: a Smart card with a chip, a digital certificate for a website).",
+              "What You Know: The person trying to authenticate has specific knowledge of something, proving they should be allowed in (ex: a password only they know, their aunt's name).",
+              "What You Are: The person trying to authenticate has a unique, biological characteristic (ex: a fingerprint or an eye scan).",
+            ]}
+            imageSrc="/images/Authentication_Factors.webp"
+            caption="Source: Descope"
+          />
+        </div>
+      </section>
     </main>
   );
 }
