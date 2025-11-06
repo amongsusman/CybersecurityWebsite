@@ -54,18 +54,18 @@ export default function InfoCard({
 
       {/* Text Section */}
       <div className="p-6 md:p-8 flex flex-col justify-center w-full md:w-1/2 text-center md:text-left">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-green-300 mb-3">
           {title}
         </h2>
 
         {description && (
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+          <p className="text-gray-700 dark:text-blue-300 leading-relaxed mb-3">
             {description}
           </p>
         )}
 
         {bullets && bullets.length > 0 && (
-          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+          <ul className="list-disc list-inside text-gray-700 dark:text-blue-300 space-y-1">
             {bullets.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
